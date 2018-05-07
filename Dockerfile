@@ -9,6 +9,8 @@ RUN apt-get -y update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+WORKDIR /root/
+
 RUN wget http://download.oracle.com/berkeley-db/db-6.2.23.tar.gz
 RUN tar -zxvf db-6.2.23.tar.gz
 
