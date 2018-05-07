@@ -14,6 +14,6 @@ RUN tar -zxvf db-6.2.23.tar.gz
 
 WORKDIR /root/db-6.2.23/build_unix
 
-RUN ../dist/configure --prefix=/root/bbd --enable-cxx --disable-shared --with-pic
+RUN ./../dist/configure --prefix=/root/bbd --enable-cxx --disable-shared --with-pic
 RUN make && make install
 
