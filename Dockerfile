@@ -9,13 +9,3 @@ RUN apt-get -y update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-WORKDIR /root/
-
-RUN wget http://download.oracle.com/berkeley-db/db-6.2.23.tar.gz
-RUN tar -zxvf db-6.2.23.tar.gz
-
-WORKDIR /root/db-6.2.23/build_unix
-
-RUN ./../dist/configure --prefix=/root/bbd --host=x86_64-w64-mingw32 --enable-static --disable-shared
-RUN make && make install
-
