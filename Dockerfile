@@ -41,8 +41,8 @@ RUN curl https://sh.rustup.rs > sh.rustup.rs \
     && . $HOME/.cargo/env \
     && echo 'source $HOME/.cargo/env' >> $HOME/.bashrc \
     && rustup update \
-    && rustup target add x86_64-unknown-linux-musl
-RUN rustup target add x86_64-pc-windows-gnu
+    && rustup target add x86_64-unknown-linux-musl \
+    && rustup target add x86_64-pc-windows-gnu
 
 # Build and install CMake from source.
 WORKDIR /usr/src
