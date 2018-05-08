@@ -1,6 +1,6 @@
 FROM thewtex/cross-compiler-windows-x64
 MAINTAINER Asher Dawes asher.dawes@gmail.com
-
+RUN curl https://sh.rustup.rs -sSf | sh 
 RUN apt-get -y update && \
     apt-get -y upgrade && \
     apt-get -y install libc6-dev m4 libtool \
