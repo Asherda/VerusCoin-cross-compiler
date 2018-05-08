@@ -64,7 +64,6 @@ RUN git clone git://cmake.org/cmake.git CMake && \
 RUN git clone -b dev --single-branch --recursive https://github.com/Asherda/VerusCoin.git komodo
 ENV HOME /komodo
 WORKDIR /komodo
-
 RUN ./zcutil/fetch-params.sh
 
 
