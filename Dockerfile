@@ -46,7 +46,7 @@ RUN curl https://sh.rustup.rs > sh.rustup.rs \
 
 # Build and install CMake from source.
 WORKDIR /usr/src
-RUN git clone git://cmake.org/cmake.git CMake && \
+RUN git clone -b v3.4.3 --single-branch git://cmake.org/cmake.git CMake && \
   cd CMake && \
   git checkout v3.4.3 && \
   cd .. && mkdir CMake-build && \
