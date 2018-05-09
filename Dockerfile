@@ -5,36 +5,33 @@ RUN apt-get update && apt-get -y install \
   automake \
   autogen \
   bash \
+  bsdmainutils \
   build-essential \
-  bzip2 \
-  ca-certificates \
   curl \
   file \
   git \
-  gzip \
-  libcurl4-openssl-dev \
+  libc6-dev \
+  libcurl4-openssl \
+  libdb++-dev \
+  libqrencode-dev \
+  libprotobuf-dev \
   libssl-dev \
+  libtool \
+  m4 \
   make \
   mingw-w64\
   ncurses-dev \
   pkg-config \
+  protobuf-compiler \
   python \
-  rsync \
-  sed \
+  python-zmq \
+  software-properties-common \
   tar \
   vim \
   wget \
-  xz-utils && \
-  apt-get -y clean
-
-
-RUN apt-get -y update && \
-    apt-get -y upgrade && \
-    apt-get -y install libc6-dev m4 libtool \
-    zlib1g-dev bsdmainutils libprotobuf-dev \
-    protobuf-compiler libqrencode-dev libdb++-dev software-properties-common libcurl4-openssl-dev && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+  zlib1g-dev \
+  apt-get -y clean \
+  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN curl https://sh.rustup.rs > sh.rustup.rs \
     && sh sh.rustup.rs -y \
