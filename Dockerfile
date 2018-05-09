@@ -29,17 +29,16 @@ RUN apt-get update && apt-get -y install \
   tar \
   vim \
   wget \
-  zlib1g-dev && \
-  apt-get -y clean && \
-  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-RUN curl https://sh.rustup.rs > sh.rustup.rs \
+  zlib1g-dev \
+  && curl https://sh.rustup.rs > sh.rustup.rs \
     && sh sh.rustup.rs -y \
     && . $HOME/.cargo/env \
     && echo 'source $HOME/.cargo/env' >> $HOME/.bashrc \
     && rustup update \
     && rustup target add x86_64-unknown-linux-musl \
-    && rustup target add x86_64-pc-windows-gnu
+    && rustup target add x86_64-pc-windows-gnu\
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Build and install CMake from source.
 WORKDIR /usr/src
