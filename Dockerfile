@@ -32,6 +32,8 @@ RUN apt-get update && apt-get -y install \
   zlib1g-dev \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# install toolchain
 RUN curl https://sh.rustup.rs -sSf | \
     sh -s -- --default-toolchain stable -y
 
