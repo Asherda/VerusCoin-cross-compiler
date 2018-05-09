@@ -1,5 +1,5 @@
 FROM ubuntu:xenial
-MAINTAINER Matt McCormick "matt.mccormick@kitware.com"
+MAINTAINER Asher Dawes asher.dawes@gmail.com
 
 RUN apt-get update && apt-get -y install \
   automake \
@@ -30,8 +30,8 @@ RUN apt-get update && apt-get -y install \
   vim \
   wget \
   zlib1g-dev \
-  apt-get -y clean \
-  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+  apt-get -y clean
+RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN curl https://sh.rustup.rs > sh.rustup.rs \
     && sh sh.rustup.rs -y \
