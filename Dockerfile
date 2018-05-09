@@ -11,7 +11,7 @@ RUN apt-get update && apt-get -y install \
   file \
   git \
   libc6-dev \
-  libcurl4-openssl \
+  libcurl4-openssl-dev \
   libdb++-dev \
   libqrencode-dev \
   libprotobuf-dev \
