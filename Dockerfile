@@ -31,7 +31,7 @@ RUN apt-get update && apt-get -y install \
   wget \
   zlib1g-dev \
   && apt-get clean \
-  && mkdir /home/VerusCoin/
+  && mkdir /home/VerusCoin/ \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # install toolchain
