@@ -31,6 +31,7 @@ RUN apt-get update && apt-get -y install \
   wget \
   zlib1g-dev \
   && apt-get clean \
+  && mkdir /home/VerusCoin/
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # install toolchain
@@ -58,6 +59,8 @@ RUN git clone -b v3.4.3 --single-branch git://cmake.org/cmake.git CMake && \
   make install && \
   cd .. && \
   rm -rf CMake*
+WORKDIR /home/VerusCoin  
+VOLUME ["/home/VerusCoin"]
 CMD /bin/sh
 
 
