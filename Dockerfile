@@ -58,6 +58,6 @@ RUN git clone -b v3.4.3 --single-branch git://cmake.org/cmake.git CMake && \
   make install && \
   cd .. && \
   rm -rf CMake*
-
+CMD /bin/sh
 
 
