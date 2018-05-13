@@ -27,6 +27,7 @@ RUN apt-get update && apt-get -y install \
   python-zmq \
   software-properties-common \
   tar \
+  texinfo \
   vim \
   wget \
   zlib1g-dev \
