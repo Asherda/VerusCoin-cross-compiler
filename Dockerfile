@@ -1,6 +1,7 @@
 FROM ubuntu:xenial
 MAINTAINER Asher Dawes asher.dawes@gmail.com
 
+VOLUME /
 RUN apt-get update && apt-get -y install \
   automake \
   autogen \
