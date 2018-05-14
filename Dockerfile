@@ -2,6 +2,7 @@ FROM ubuntu:xenial
 MAINTAINER Asher Dawes asher.dawes@gmail.com
 
 RUN apt-get update && apt-get -y install \
+  autoconf \
   automake \
   autogen \
   bash \
@@ -9,14 +10,18 @@ RUN apt-get update && apt-get -y install \
   build-essential \
   curl \
   file \
+  g++-multilib \
   git \
   libc6-dev \
+  libcap-dev \
   libcurl4-openssl-dev \
   libdb++-dev \
   libqrencode-dev \
   libprotobuf-dev \
   libssl-dev \
   libtool \
+  libz-dev \
+  libbz2-dev \
   m4 \
   make \
   mingw-w64\
@@ -28,6 +33,7 @@ RUN apt-get update && apt-get -y install \
   software-properties-common \
   tar \
   texinfo \
+  unzip \
   vim \
   wget \
   zlib1g-dev \
