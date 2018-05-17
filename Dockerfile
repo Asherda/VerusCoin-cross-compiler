@@ -39,17 +39,17 @@ RUN dpkg --add-architecture i386 && \
   wget \
   wine1.8 \
   winetrics \
-  zlib1g-dev && \
-  wget -nc https://dl.winehq.org/wine-builds/Release.key && \
-  apt-key add Release.key && \
-  apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/ && apt update && \
-  apt-get install -y \
-  wine1.8 \
-  winetrics \
+  zlib1g-dev \
   && apt-get clean \
   && mkdir /home/VerusCoin/ \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+RUN   wget -nc https://dl.winehq.org/wine-builds/Release.key && \
+      apt-key add Release.key && \
+      apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/ && apt update && \
+      apt-get install -y \
+      wine1.8 \
+      winetrics \
 # install toolchain
 RUN curl https://sh.rustup.rs -sSf | \
     sh -s -- --default-toolchain stable -y
