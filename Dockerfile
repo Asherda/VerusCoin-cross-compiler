@@ -36,6 +36,7 @@ RUN apt-get update && apt-get -y install \
   unzip \
   vim \
   wget \
+  wine \
   zlib1g-dev \
   && apt-get clean \
   && mkdir /home/VerusCoin/ \
