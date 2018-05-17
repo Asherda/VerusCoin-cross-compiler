@@ -1,7 +1,7 @@
 FROM ubuntu:xenial
 MAINTAINER Asher Dawes asher.dawes@gmail.com
 
-RUN apt-get update && apt-get -y install \
+RUN add-apt-repository ppa:ubuntu-wine/ppa && apt-get update && apt-get -y install \
   autoconf \
   automake \
   autogen \
@@ -37,6 +37,7 @@ RUN apt-get update && apt-get -y install \
   vim \
   wget \
   wine1.8 \
+  winetrics \
   zlib1g-dev \
   && apt-get clean \
   && mkdir /home/VerusCoin/ \
