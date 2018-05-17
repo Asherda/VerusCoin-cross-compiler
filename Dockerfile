@@ -1,8 +1,7 @@
 FROM ubuntu:xenial
 MAINTAINER Asher Dawes asher.dawes@gmail.com
 
-RUN dpkg --add-architecture i386 && wget -nc https://dl.winehq.org/wine-builds/Release.key && \
-  apt-key add Release.key && apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/ && apt update && \
+RUN dpkg --add-architecture i386 && \
   apt-get update && apt-get -y install \
   autoconf \
   automake \
@@ -40,7 +39,13 @@ RUN dpkg --add-architecture i386 && wget -nc https://dl.winehq.org/wine-builds/R
   wget \
   wine1.8 \
   winetrics \
-  zlib1g-dev \
+  zlib1g-dev && \
+  wget -nc https://dl.winehq.org/wine-builds/Release.key && \
+  apt-key add Release.key && \
+  apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/ && apt update && \
+  apt-get install -y \
+  wine1.8 \
+  winetrics \
   && apt-get clean \
   && mkdir /home/VerusCoin/ \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
