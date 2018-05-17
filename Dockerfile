@@ -44,20 +44,15 @@ RUN dpkg --add-architecture i386 && \
   && mkdir /home/VerusCoin/ \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN   wget -nc https://dl.winehq.org/wine-builds/Release.key && \
-      apt-key add Release.key && \
-      apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/ && apt update && \
-      apt-get install -y \
-      wine1.8 \
-      winetrics \
-# install toolchain
-RUN curl https://sh.rustup.rs -sSf | \
-    sh -s -- --default-toolchain stable -y
+RUN dpkg --add-architecture i386 \
+		&& apt-get update \
+		&& apt-get install -y --no-install-recommends \
+				wine \
+				wine32 \
+		&& rm -rf /var/lib/apt/lists/*
 
-ENV PATH=/root/.cargo/bin:$PATH
-RUN rustup update \
-    && rustup target add x86_64-unknown-linux-musl \
-    && rustup target add x86_64-pc-windows-gnu
+RUN curl -SL 'https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks' -o /usr/local/bin/winetricks \
+		&& chmod +x /usr/local/bin/winetricks
 
 # Build and install CMake from source.
 WORKDIR /usr/src
