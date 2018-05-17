@@ -1,7 +1,7 @@
 FROM ubuntu:xenial
 MAINTAINER Asher Dawes asher.dawes@gmail.com
 
-RUN add-apt-repository ppa:ubuntu-wine/ppa && apt-get update && apt-get -y install \
+RUN dpkg --add-architecture i386 && add-apt-repository ppa:ubuntu-wine/ppa && apt-get update && apt-get -y install \
   autoconf \
   automake \
   autogen \
