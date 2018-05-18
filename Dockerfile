@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu:bionic
 MAINTAINER Asher Dawes asher.dawes@gmail.com
 
 RUN apt-get update && apt-get -y install \
@@ -36,22 +36,19 @@ RUN apt-get update && apt-get -y install \
   unzip \
   vim \
   wget \
-  wine1.8 \
-  winetrics \
   zlib1g-dev \
   && apt-get clean \
   && mkdir /home/VerusCoin/ \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN dpkg --add-architecture i386 \
-		&& apt-get update \
-		&& apt-get install -y --no-install-recommends \
-				wine \
-				wine32 \
-		&& rm -rf /var/lib/apt/lists/*
+# install toolchain
+RUN curl https://sh.rustup.rs -sSf | \
+    sh -s -- --default-toolchain stable -y
 
-RUN curl -SL 'https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks' -o /usr/local/bin/winetricks \
-		&& chmod +x /usr/local/bin/winetricks
+ENV PATH=/root/.cargo/bin:$PATH
+RUN rustup update \
+    && rustup target add x86_64-unknown-linux-musl \
+    && rustup target add x86_64-pc-windows-gnu
 
 # Build and install CMake from source.
 WORKDIR /usr/src
@@ -69,8 +66,8 @@ RUN git clone -b v3.4.3 --single-branch git://cmake.org/cmake.git CMake && \
   make install && \
   cd .. && \
   rm -rf CMake*
-WORKDIR /home
-VOLUME ["/home"]
+WORKDIR /home/VerusCoin
+VOLUME ["/home/VerusCoin"]
 CMD /bin/sh
 
 
