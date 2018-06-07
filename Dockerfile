@@ -67,7 +67,7 @@ RUN git clone -b v3.4.3 --single-branch git://cmake.org/cmake.git CMake && \
   cd .. && \
   rm -rf CMake*
 WORKDIR /home/VerusCoin
-VOLUME ["/home/VerusCoin"]
+VOLUME ["/home/"]
 CMD /bin/sh
 
 
