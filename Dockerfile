@@ -1,7 +1,7 @@
 FROM ubuntu:bionic
 MAINTAINER Asher Dawes asher.dawes@gmail.com
 
-RUN apt-get update && apt-get -y install \
+RUN apt update && apt -y install \
   autoconf \
   automake \
   autogen \
@@ -66,7 +66,7 @@ RUN git clone -b v3.4.3 --single-branch git://cmake.org/cmake.git CMake && \
   make install && \
   cd .. && \
   rm -rf CMake*
-WORKDIR /home/VerusCoin
+WORKDIR /home/
 VOLUME ["/home/"]
 CMD /bin/sh
 
