@@ -1,7 +1,7 @@
 FROM ubuntu:bionic
 MAINTAINER Asher Dawes asher.dawes@gmail.com
 
-RUN apt -y update && \
+RUN apt update && \
     apt -y upgrade && \
     apt -y install build-essential pkg-config libc6-dev m4 g++-multilib autoconf libtool ncurses-dev \
     unzip python zlib1g-dev wget bsdmainutils automake libssl-dev libprotobuf-dev \
