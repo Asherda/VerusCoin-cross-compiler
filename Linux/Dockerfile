@@ -3,7 +3,7 @@ MAINTAINER Asher Dawes asher.dawes@gmail.com
 
 RUN apt update && \
     apt -y upgrade && \
-    apt -y install build-essential pkg-config libc6-dev m4 g++-multilib autoconf libtool ncurses-dev \
+    apt -y install build-essential ccache pkg-config libc6-dev m4 g++-multilib autoconf libtool ncurses-dev \
     unzip python zlib1g-dev wget bsdmainutils automake libssl-dev libprotobuf-dev \
     protobuf-compiler libqrencode-dev libdb++-dev software-properties-common libcurl4-openssl-dev curl && \
     apt-get clean && \
@@ -11,6 +11,8 @@ RUN apt update && \
 
 WORKDIR /home/
 VOLUME ["/home/"]
+VOLUME ["/root/.ccache"]
+VOLUME ["/root/.zcash-params"]
 CMD /bin/sh
 
 
