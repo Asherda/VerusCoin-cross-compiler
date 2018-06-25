@@ -8,6 +8,7 @@ RUN apt update && apt -y install \
   bash \
   bsdmainutils \
   build-essential \
+  cmake \
   curl \
   g++-multilib \
   git \
