@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:xenial
 MAINTAINER Asher Dawes asher.dawes@gmail.com
 
 RUN apt update && \
