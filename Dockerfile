@@ -53,6 +53,6 @@ RUN rustup update \
 
 WORKDIR /home/
 VOLUME ["/home/"]
-CMD /bin/sh
+CMD /bin/bash
 
 
