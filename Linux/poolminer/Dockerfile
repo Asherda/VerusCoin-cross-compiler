@@ -12,7 +12,8 @@ RUN apt-get -qq update && apt-get install -q -y software-properties-common pytho
     update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90 && \
     wget --no-check-certificate --max-redirect 3 https://sourceforge.net/projects/boost/files/boost/1.66.0/boost_1_66_0.tar.gz && \
     mkdir -p /usr/include/boost && tar zxf boost_1_66_0.tar.gz -C /usr/include/boost --strip-components=1 && \
-    echo ${BOOST_ROOT}
+    echo ${BOOST_ROOT} && \
+    apt-get -y autoremove; apt-get -y autoclean;
+    apt-get -y clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-WORKDIR /usr/include/
-ENTRYPOINT /bin/bash
