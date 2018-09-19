@@ -1,4 +1,4 @@
-FROM debian:9.5-slim
+FROM ubuntu:xenial
 MAINTAINER Asher Dawes <asher.dawes@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive \
