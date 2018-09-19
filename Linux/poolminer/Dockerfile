@@ -19,7 +19,5 @@ RUN apt-get -qq update && apt-get install -q -y \
     mkdir -p /usr/include/boost && \
     tar zxf boost_1_66_0.tar.gz -C /usr/include/boost --strip-components=1 && \
     echo ${BOOST_ROOT} && \
-    apt-get -y autoremove; \
-    apt-get -y autoclean; \
     apt-get -y clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
