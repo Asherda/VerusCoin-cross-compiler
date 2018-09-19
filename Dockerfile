@@ -38,7 +38,9 @@ RUN apt update && apt -y install \
   wget \
   zip \
   zlib1g-dev \
-  && apt clean \
+  apt-get -y autoremove; \
+  apt-get -y autoclean; \
+  apt-get -y clean \
   && mkdir /home/VerusCoin/ \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -48,11 +50,8 @@ RUN curl https://sh.rustup.rs -sSf | \
 
 ENV PATH=/root/.cargo/bin:$PATH
 RUN rustup update \
-    && rustup target add x86_64-unknown-linux-musl \
     && rustup target add x86_64-pc-windows-gnu
 
-WORKDIR /home/
-VOLUME ["/home/"]
-CMD /bin/bash
+
 
 
