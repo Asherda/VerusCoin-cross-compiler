@@ -1,10 +1,10 @@
 FROM debian:9.5-slim
 MAINTAINER Asher Dawes <asher.dawes@gmail.com>
 
-ENV DEBIAN_FRONTEND noninteractive 
-    BOOST_VERSION=1.66 
-    BOOST_VERSION_=1.66_ 
-    BOOST_ROOT=/usr/include/boost 
+ENV DEBIAN_FRONTEND noninteractive \
+    BOOST_VERSION=1.66 \
+    BOOST_VERSION_=1.66_ \
+    BOOST_ROOT=/usr/include/boost \
     CXX=gcc-6
 
 RUN apt-get -qq update && apt-get install -q -y \
