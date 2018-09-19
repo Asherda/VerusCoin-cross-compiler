@@ -1,12 +1,11 @@
-FROM ubuntu:xenial
+FROM debian:9.5-slim
 MAINTAINER Asher Dawes <asher.dawes@gmail.com>
 
-RUN apt-get -qq update && apt-get install -q -y \
-    gcc \
-    cmake \
-    libboost-all-dev && \
-    apt-get -y autoremove; \
-    apt-get -y autoclean; \
-    apt-get -y clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+ENV GITHUB="https://github.com/VerusCoin/nheqminer" SRCDIR="/usr/src/nheqminer"
 
+RUN apt-get update && apt-get install -y  cmake libboost-all-dev git && \
+    git clone ${GITHUB} ${SRCDIR} && mkdir -p ${SRCDIR}/build && cd ${SRCDIR}/build && cmake -DUSE_CUDA_DJEZO=0 -DUSE_CPU_XENONCAT=0 .. && \
+    make -j $(nproc) && cp nheqminer /usr/bin && strip /usr/bin/nheqminer && \
+    apt-get -y autoremove; apt-get -y autoclean; apt-get -y clean; rm -rf /var/lib/apt/lists/*
+
+ENTRYPOINT ["nheqminer"]
