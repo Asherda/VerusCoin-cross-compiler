@@ -42,7 +42,7 @@ RUN apt update && apt -y install \
   curl https://sh.rustup.rs -sSf | \ 
   sh -s -- --default-toolchain stable -y && \
   rustup update && \
-  rustup target add x86_64-pc-windows-gnu
+  rustup target add x86_64-pc-windows-gnu && \
   apt-get -y autoremove; \
   apt-get -y autoclean; \
   apt-get -y clean && \
