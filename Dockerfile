@@ -1,11 +1,12 @@
 FROM ubuntu:bionic
 MAINTAINER Asher Dawes asher.dawes@gmail.com
 
+ENV PATH=/root/.cargo/bin:$PATH
+
 RUN apt update && apt -y install \
   autoconf \
   automake \
   autogen \
-  bash \
   bsdmainutils \
   build-essential \
   cmake \
@@ -37,20 +38,18 @@ RUN apt update && apt -y install \
   vim \
   wget \
   zip \
-  zlib1g-dev \
+  zlib1g-dev && \
+  curl https://sh.rustup.rs -sSf | \ 
+  sh -s -- --default-toolchain stable -y && \
+  rustup update && \
+  rustup target add x86_64-pc-windows-gnu
   apt-get -y autoremove; \
   apt-get -y autoclean; \
-  apt-get -y clean \
-  && mkdir /home/VerusCoin/ \
-  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+  apt-get -y clean && \
+  mkdir /home/VerusCoin/ && \
+  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# install toolchain
-RUN curl https://sh.rustup.rs -sSf | \
-    sh -s -- --default-toolchain stable -y
 
-ENV PATH=/root/.cargo/bin:$PATH
-RUN rustup update \
-    && rustup target add x86_64-pc-windows-gnu
 
 
 
