@@ -6,7 +6,11 @@ ENV BOOST_VERSION=1.66
 ENV BOOST_VERSION_=1.66_
 ENV BOOST_ROOT=/usr/include/boost
 
-RUN apt-get -qq update && apt-get install -q -y software-properties-common python-software-properties && \
+RUN apt-get -qq update && apt-get install -q -y \
+    software-properties-common \
+    python-software-properties \
+    build-essential \
+    cmake && \
     add-apt-repository ppa:ubuntu-toolchain-r/test -y && \
     apt-get -qq update && apt-get install -qy g++-6 gcc git wget && \
     update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90 && \
@@ -14,7 +18,8 @@ RUN apt-get -qq update && apt-get install -q -y software-properties-common pytho
     mkdir -p /usr/include/boost && \
     tar zxf boost_1_66_0.tar.gz -C /usr/include/boost --strip-components=1 && \
     echo ${BOOST_ROOT} && \
-    apt-get -y autoremove; apt-get -y autoclean; \
+    apt-get -y autoremove; \
+    apt-get -y autoclean; \
     apt-get -y clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
