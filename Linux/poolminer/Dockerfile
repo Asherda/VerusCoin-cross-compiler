@@ -2,9 +2,14 @@ FROM ubuntu:xenial
 MAINTAINER Asher Dawes <asher.dawes@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive 
-ENV BOOST_VERSION=1.66 
-ENV BOOST_VERSION_=1.66_ 
+ENV BOOST_MAJOR_VERSION=1
+ENV BOOST_MINOR_VERSION=66
+ENV BOOST_PATCH_=0
+ENV BOOST_VERSION=${BOOST_MAJOR_VERSION}.${BOOST_MINOR_VERSION}  
+ENV BOOST_VERSION_=${BOOST_MAJOR_VERSION}.${BOOST_MINOR_VERSION}_
+ENV BOOST_TAR=boost_${BOOST_MAJOR_VERSION}_${BOOST_MINOR_VERSION}_${BOOST_PATCH}.tar.gz
 ENV BOOST_ROOT=/usr/include/boost 
+ENV BOOST_LIBRARYDIR=${BOOST_ROOT}/libs
 ENV CXX=gcc-6
 
 RUN apt-get -qq update && apt-get install -q -y \
@@ -13,9 +18,9 @@ RUN apt-get -qq update && apt-get install -q -y \
     add-apt-repository ppa:ubuntu-toolchain-r/test -y && \
     apt-get -qq update && apt-get install -qy g++-6 gcc git wget && \
     update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90 && \
-    wget --no-check-certificate --max-redirect 3 https://sourceforge.net/projects/boost/files/boost/1.66.0/boost_1_66_0.tar.gz && \
+    wget --no-check-certificate --max-redirect 3 https://sourceforge.net/projects/boost/files/boost/${BOOST_VERSION}/${BOOST_TAR} && \
+    rm ${BOOST_TAR} && \
     mkdir -p /usr/include/boost && \
     tar zxf boost_1_66_0.tar.gz -C /usr/include/boost --strip-components=1 && \
-    echo ${BOOST_ROOT} && \
     apt-get -y clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
