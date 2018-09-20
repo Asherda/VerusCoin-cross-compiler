@@ -23,6 +23,7 @@ RUN apt-get -qq update && apt-get install -q -y \
     mkdir -p /usr/include/ && \
     tar zxf ${BOOST_TAR} --strip-components=1 && \
     rm ${BOOST_TAR} && \
+    ls && \
     cd boost_${BOOST_MAJOR_VERSION}_${BOOST_MINOR_VERSION}_${BOOST_PATCH} && \
     ./bootstrap.sh --prefix=/usr/include/ && \
     ./b2 install && \
