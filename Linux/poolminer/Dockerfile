@@ -21,8 +21,8 @@ RUN apt-get -qq update && apt-get install -q -y \
     apt-get install -qy g++-6 wget && \
     update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90 && \
     wget --no-check-certificate --max-redirect 3 ${BOOST_DOWNLOAD_URL} && \
-    rm ${BOOST_TAR} && \
     mkdir -p /usr/include/boost && \
     tar zxf boost_1_66_0.tar.gz -C /usr/include/boost --strip-components=1 && \
+    rm ${BOOST_TAR} && \
     apt-get -y clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
