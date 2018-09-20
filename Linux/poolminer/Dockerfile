@@ -10,14 +10,15 @@ ENV BOOST_VERSION_=${BOOST_MAJOR_VERSION}.${BOOST_MINOR_VERSION}_
 ENV BOOST_TAR=boost_${BOOST_MAJOR_VERSION}_${BOOST_MINOR_VERSION}_${BOOST_PATCH}.tar.gz
 ENV BOOST_ROOT=/usr/include/boost 
 ENV BOOST_LIBRARYDIR=${BOOST_ROOT}/libs
-ENV BOOST_DOWNLOAD_URL=https://sourceforge.net/projects/boost/files/boost/${BOOST_VERSION}/${BOOST_TAR}/download
+ENV BOOST_DOWNLOAD_URL=https://sourceforge.net/projects/boost/files/boost/${BOOST_VERSION}/${BOOST_TAR}
 ENV CXX=gcc-6
 
 RUN apt-get -qq update && apt-get install -q -y \
     software-properties-common \
     cmake && \
     add-apt-repository ppa:ubuntu-toolchain-r/test -y && \
-    apt-get -qq update && apt-get install -qy g++-6 gcc git wget && \
+    apt-get -qq update && \
+    apt-get install -qy g++-6 wget && \
     update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90 && \
     wget --no-check-certificate --max-redirect 3 ${BOOST_DOWNLOAD_URL} && \
     rm ${BOOST_TAR} && \
