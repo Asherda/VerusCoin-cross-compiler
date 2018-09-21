@@ -1,16 +1,16 @@
 FROM ubuntu:xenial
 MAINTAINER Asher Dawes <asher.dawes@gmail.com>
 
-ENV DEBIAN_FRONTEND noninteractive 
-ENV BOOST_MAJOR_VERSION=1
-ENV BOOST_MINOR_VERSION=66
-ENV BOOST_PATCH=0
-ENV BOOST_VERSION=${BOOST_MAJOR_VERSION}.${BOOST_MINOR_VERSION}.${BOOST_PATCH}  
-ENV BOOST_VERSION_=${BOOST_MAJOR_VERSION}.${BOOST_MINOR_VERSION}_
-ENV BOOST_TAR=boost_${BOOST_MAJOR_VERSION}_${BOOST_MINOR_VERSION}_${BOOST_PATCH}.tar.gz
-ENV BOOST_ROOT=/usr/include/boost
-ENV BOOST_DOWNLOAD_URL=https://sourceforge.net/projects/boost/files/boost/${BOOST_VERSION}/${BOOST_TAR}
-ENV CXX=gcc-6
+ENV DEBIAN_FRONTEND=noninteractive \
+    BOOST_MAJOR_VERSION=1 \
+    BOOST_MINOR_VERSION=66 \
+    BOOST_PATCH=0 \
+    BOOST_VERSION=${BOOST_MAJOR_VERSION}.${BOOST_MINOR_VERSION}.${BOOST_PATCH} \ 
+    BOOST_VERSION_=${BOOST_MAJOR_VERSION}.${BOOST_MINOR_VERSION}_ \
+    BOOST_TAR=boost_${BOOST_MAJOR_VERSION}_${BOOST_MINOR_VERSION}_${BOOST_PATCH}.tar.gz \
+    BOOST_ROOT=/usr/include/boost \
+    BOOST_DOWNLOAD_URL=https://sourceforge.net/projects/boost/files/boost/${BOOST_VERSION}/${BOOST_TAR} \
+    CXX=gcc-6
 
 RUN apt-get -qq update && apt-get install -q -y \
     software-properties-common \
