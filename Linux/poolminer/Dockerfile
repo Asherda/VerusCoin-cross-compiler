@@ -23,9 +23,9 @@ RUN apt-get -qq update && apt-get install -q -y \
     mkdir -p /usr/include/ && \
     tar zxf ${BOOST_TAR} && \
     rm ${BOOST_TAR} && \
-    ls && \
+    mkdir ${BOOST_ROOT} && \
     cd boost_${BOOST_MAJOR_VERSION}_${BOOST_MINOR_VERSION}_${BOOST_PATCH} && \
-    ./bootstrap.sh --prefix=${BOOST_PATCH} && \
+    ./bootstrap.sh --prefix=${BOOST_ROOT} && \
     ./b2 install && \
     cd .. && \
     rm -rf boost_${BOOST_MAJOR_VERSION}_${BOOST_MINOR_VERSION}_${BOOST_PATCH} && \
