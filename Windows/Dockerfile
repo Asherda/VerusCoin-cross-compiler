@@ -11,7 +11,6 @@ RUN apt update && apt -y install \
   build-essential \
   cmake \
   curl \
-  g++-multilib \
   git \
   libc6-dev \
   libcap-dev \
@@ -33,9 +32,7 @@ RUN apt update && apt -y install \
   python-zmq \
   software-properties-common \
   tar \
-  texinfo \
   unzip \
-  vim \
   wget \
   zip \
   zlib1g-dev && \
