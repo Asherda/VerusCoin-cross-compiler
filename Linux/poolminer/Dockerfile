@@ -21,8 +21,8 @@ RUN apt-get -qq update && apt-get install -q -y \
     add-apt-repository ppa:ubuntu-toolchain-r/test -y && \
     apt-get -qq update && \
     apt-get install -qy \
-    ${CXX} \
-    ${CC} \
+    g++-8 \
+    gcc-8 \
     wget && \
     wget --max-redirect 3 ${BOOST_DOWNLOAD_URL} && \
     mkdir -p /usr/include/ && \
