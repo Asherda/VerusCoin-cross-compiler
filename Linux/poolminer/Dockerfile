@@ -6,10 +6,13 @@ ENV DEBIAN_FRONTEND=noninteractive \
     BOOST_MINOR_VERSION=66 \
     BOOST_PATCH=0 \
     BOOST_ROOT=/usr/include/boost \
-    CXX=gcc-6
-ENV BOOST_VERSION=${BOOST_MAJOR_VERSION}.${BOOST_MINOR_VERSION}.${BOOST_PATCH} \ 
+    CXX=g++-6 \
+    CC=gcc+-6
+
+ENV BOOST_VERSION=${BOOST_MAJOR_VERSION}.${BOOST_MINOR_VERSION}.${BOOST_PATCH} \
     BOOST_VERSION_=${BOOST_MAJOR_VERSION}.${BOOST_MINOR_VERSION}_ \
-    BOOST_TAR=boost_${BOOST_MAJOR_VERSION}_${BOOST_MINOR_VERSION}_${BOOST_PATCH}.tar.gz 
+    BOOST_TAR=boost_${BOOST_MAJOR_VERSION}_${BOOST_MINOR_VERSION}_${BOOST_PATCH}.tar.gz
+
 ENV BOOST_DOWNLOAD_URL=https://sourceforge.net/projects/boost/files/boost/${BOOST_VERSION}/${BOOST_TAR} 
 
 RUN apt-get -qq update && apt-get install -q -y \
@@ -17,8 +20,8 @@ RUN apt-get -qq update && apt-get install -q -y \
     cmake && \
     add-apt-repository ppa:ubuntu-toolchain-r/test -y && \
     apt-get -qq update && \
-    apt-get install -qy g++-6 wget && \
-    update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90 && \
+    apt-get install -qy ${CXX} wget && \
+    update-alternatives --install /usr/bin/${CXX} g++ /usr/bin/${CXX} 90 && \
     wget --no-check-certificate --max-redirect 3 ${BOOST_DOWNLOAD_URL} && \
     mkdir -p /usr/include/ && \
     tar zxf ${BOOST_TAR} && \
