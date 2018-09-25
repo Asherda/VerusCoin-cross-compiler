@@ -6,8 +6,8 @@ ENV DEBIAN_FRONTEND=noninteractive \
     BOOST_MINOR_VERSION=68 \
     BOOST_PATCH=0 \
     BOOST_ROOT=/usr/include/boost \
-    CXX=g++-6 \
-    CC=gcc+-6
+    CXX=usr/bin/g++-8 \
+    CC=usr/bin/gcc+-8
 
 ENV BOOST_VERSION=${BOOST_MAJOR_VERSION}.${BOOST_MINOR_VERSION}.${BOOST_PATCH} \
     BOOST_VERSION_=${BOOST_MAJOR_VERSION}.${BOOST_MINOR_VERSION}_ \
@@ -24,9 +24,7 @@ RUN apt-get -qq update && apt-get install -q -y \
     ${CXX} \
     ${CC} \
     wget && \
-    update-alternatives --install /usr/bin/g++ g++ /usr/bin/${CXX} 90 && \
-    update-alternatives --install /usr/bin/gcc gcc /usr/bin/${CC} 90 && \
-    wget --no-check-certificate --max-redirect 3 ${BOOST_DOWNLOAD_URL} && \
+    wget --max-redirect 3 ${BOOST_DOWNLOAD_URL} && \
     mkdir -p /usr/include/ && \
     tar zxf ${BOOST_TAR} && \
     rm ${BOOST_TAR} && \
