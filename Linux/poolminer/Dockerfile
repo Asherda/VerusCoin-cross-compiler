@@ -5,9 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
     BOOST_MAJOR_VERSION=1 \
     BOOST_MINOR_VERSION=68 \
     BOOST_PATCH=0 \
-    BOOST_ROOT=/usr/include/boost \
-    CXX=/usr/bin/g++-8 \
-    CC=/usr/bin/gcc-8
+    BOOST_ROOT=/usr/include/boost
 
 ENV BOOST_VERSION=${BOOST_MAJOR_VERSION}.${BOOST_MINOR_VERSION}.${BOOST_PATCH} \
     BOOST_VERSION_=${BOOST_MAJOR_VERSION}.${BOOST_MINOR_VERSION}_ \
@@ -23,6 +21,8 @@ RUN apt-get -qq update && apt-get install -q -y \
     apt-get install -qy \
     g++-8 \
     gcc-8 \
+    update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 90 \
+    update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 90 \
     wget && \
     wget --max-redirect 3 ${BOOST_DOWNLOAD_URL} && \
     mkdir -p /usr/include/ && \
@@ -34,5 +34,6 @@ RUN apt-get -qq update && apt-get install -q -y \
     ./b2 install && \
     cd .. && \
     rm -rf boost_${BOOST_MAJOR_VERSION}_${BOOST_MINOR_VERSION}_${BOOST_PATCH} && \
-    apt-get -y clean && \
+    apt-get -y autoremove; \
+    apt-get -y autoclean; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
