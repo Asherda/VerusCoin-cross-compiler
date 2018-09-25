@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu:bionic
 MAINTAINER Asher Dawes <asher.dawes@gmail.com>
 
 ENV DEBIAN_FRONTEND=noninteractive \

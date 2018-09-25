@@ -7,11 +7,7 @@ RUN apt update && apt -y install \
   autoconf \
   automake \
   autogen \
-  bsdmainutils \
-  build-essential \
-  cmake \
   curl \
-  git \
   libc6-dev \
   libcap-dev \
   libcurl4-openssl-dev \
@@ -31,7 +27,6 @@ RUN apt update && apt -y install \
   python \
   python-zmq \
   software-properties-common \
-  tar \
   unzip \
   wget \
   zip \
