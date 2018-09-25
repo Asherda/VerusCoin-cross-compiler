@@ -25,6 +25,7 @@ RUN apt-get -qq update && apt-get install -q -y \
     ${CC} \
     wget && \
     update-alternatives --install /usr/bin/g++ g++ /usr/bin/${CXX} 90 && \
+    update-alternatives --install /usr/bin/gcc gcc /usr/bin/${CC} 90 && \
     wget --no-check-certificate --max-redirect 3 ${BOOST_DOWNLOAD_URL} && \
     mkdir -p /usr/include/ && \
     tar zxf ${BOOST_TAR} && \
