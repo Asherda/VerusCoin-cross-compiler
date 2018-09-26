@@ -3,7 +3,7 @@ MAINTAINER Asher Dawes <asher.dawes@gmail.com>
 
 ENV DEBIAN_FRONTEND=noninteractive \
     BOOST_MAJOR_VERSION=1 \
-    BOOST_MINOR_VERSION=68 \
+    BOOST_MINOR_VERSION=67 \
     BOOST_PATCH=0 \
     BOOST_ROOT=/usr/include/boost \
     CXX=x86_64-w64-mingw32-g++-posix \
