@@ -7,6 +7,7 @@ RUN apt update && apt -y install \
   autoconf \
   automake \
   autogen \
+  bsdmainutils \
   curl \
   libc6-dev \
   libcap-dev \
@@ -26,7 +27,6 @@ RUN apt update && apt -y install \
   protobuf-compiler \
   python \
   python-zmq \
-  software-properties-common \
   unzip \
   wget \
   zip \
