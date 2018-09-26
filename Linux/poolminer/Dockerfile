@@ -35,5 +35,5 @@ RUN apt-get -qq update && apt-get install -q -y \
     ./b2 install && \
     cd .. && \
     rm -rf boost_${BOOST_MAJOR_VERSION}_${BOOST_MINOR_VERSION}_${BOOST_PATCH} && \
-    apt-get -y autoclean; \
+    apt-get -y clean; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
