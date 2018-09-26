@@ -29,8 +29,7 @@ RUN apt-get update && \
     software-properties-common \
     libcurl4-openssl-dev \
     libgconf-2-4 && \
-    apt-get -y autoremove; apt-get -y autoclean; \
-    apt-get -y clean && \
+    apt-get -y autoclean; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
