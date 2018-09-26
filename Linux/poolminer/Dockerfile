@@ -5,9 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
     BOOST_MAJOR_VERSION=1 \
     BOOST_MINOR_VERSION=67 \
     BOOST_PATCH=0 \
-    BOOST_ROOT=/usr/include/boost \
-    CC=/usr/bin/gcc-8 \
-    CXX=/usr/bin/g++-8
+    BOOST_ROOT=/usr/include/boost
 
 
 ENV BOOST_VERSION=${BOOST_MAJOR_VERSION}.${BOOST_MINOR_VERSION}.${BOOST_PATCH} \
@@ -22,8 +20,10 @@ RUN apt-get -qq update && apt-get install -q -y \
     add-apt-repository ppa:ubuntu-toolchain-r/test -y && \
     apt-get -qq update && \
     apt-get install -y \
-    gcc-8 \
     g++-8 \
+    gcc-8 \
+    update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 90 \
+    update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 90 \
     wget && \
     wget --max-redirect 3 ${BOOST_DOWNLOAD_URL} && \
     mkdir -p /usr/include/ && \

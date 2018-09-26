@@ -11,7 +11,6 @@ RUN apt-get update && \
     pkg-config \
     libc6-dev \
     m4 \
-    g++-multilib \
     autoconf \
     libtool \
     ncurses-dev \
@@ -30,7 +29,10 @@ RUN apt-get update && \
     libdb++-dev \
     software-properties-common \
     libcurl4-openssl-dev \
-    libgconf-2-4 && \
+    libgconf-2-4 \
+    g++-8 \
+    gcc-8 \
+    g++8-multilib && \
     apt-get -y autoclean; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
