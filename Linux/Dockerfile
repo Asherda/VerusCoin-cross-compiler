@@ -6,7 +6,9 @@ RUN apt-get update && \
     apt-get -y install \
     build-essential \
     dos2unix \
-    ccache pkg-config \
+    ccache \
+    curl \
+    pkg-config \
     libc6-dev \
     m4 \
     g++-multilib \
