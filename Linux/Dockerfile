@@ -28,7 +28,12 @@ RUN apt-get update && \
     libdb++-dev \
     software-properties-common \
     libcurl4-openssl-dev \
-    libgconf-2-4 && \
+    libgconf-2-4 &&
+    add-apt-repository ppa:ubuntu-toolchain-r/test -y && \
+    apt-get -qq update && \
+    apt-get install -y \
+    g++-8 \
+    gcc-8 && \
     apt-get -y clean; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
