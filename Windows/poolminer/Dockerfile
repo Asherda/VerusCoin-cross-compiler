@@ -3,7 +3,7 @@ MAINTAINER Asher Dawes <asher.dawes@gmail.com>
 
 ENV DEBIAN_FRONTEND=noninteractive \
     BOOST_MAJOR_VERSION=1 \
-    BOOST_MINOR_VERSION=66 \
+    BOOST_MINOR_VERSION=67 \
     BOOST_PATCH=0 \
     BOOST_ROOT=/usr/include/boost \
     CXX=x86_64-w64-mingw32-g++-posix \
@@ -31,7 +31,7 @@ RUN apt-get -qq update && apt-get install -q -y \
     rm ${BOOST_TAR} && \
     mkdir ${BOOST_ROOT} && \
     cd boost_${BOOST_MAJOR_VERSION}_${BOOST_MINOR_VERSION}_${BOOST_PATCH} && \
-    ./bootstrap.sh mingw --prefix=${BOOST_ROOT} && \
+    ./bootstrap.sh gcc --prefix=${BOOST_ROOT} && \
     ./b2 target-os=windows address-model=64  toolset=gcc --build-type=complete link=static threading=multi && ./b2 install && \
     cd .. && \
     rm -rf boost_${BOOST_MAJOR_VERSION}_${BOOST_MINOR_VERSION}_${BOOST_PATCH} && \
