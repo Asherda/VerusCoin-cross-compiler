@@ -31,7 +31,7 @@ RUN apt-get -qq update && apt-get install -q -y \
     mkdir ${BOOST_ROOT} && \
     cd boost_${BOOST_MAJOR_VERSION}_${BOOST_MINOR_VERSION}_${BOOST_PATCH} && \
     ./bootstrap.sh --prefix=${BOOST_ROOT} && \
-    ./b2 install && \
+    ./b2 address-model=64 --build-type=complete link=static threading=multi --with-filesystem && ./b2 install && \
     cd .. && \
     rm -rf boost_${BOOST_MAJOR_VERSION}_${BOOST_MINOR_VERSION}_${BOOST_PATCH} && \
     apt-get -y clean; \

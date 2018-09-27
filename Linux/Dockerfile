@@ -34,7 +34,7 @@ RUN apt-get update && \
     apt-get -y install  \
     g++-8 \
     gcc-8 \
-    g++-8multilib && \
+    gcc-8-multilib && \
     apt-get -y clean; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
