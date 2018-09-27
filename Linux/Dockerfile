@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:xenial
 MAINTAINER Asher Dawes asher.dawes@gmail.com
 
 RUN apt-get update && \
@@ -28,10 +28,7 @@ RUN apt-get update && \
     libdb++-dev \
     software-properties-common \
     libcurl4-openssl-dev \
-    libgconf-2-4 \
-    g++-8 \
-    gcc-8 \
-    g++8-multilib && \
+    libgconf-2-4 && \
     apt-get -y clean; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
