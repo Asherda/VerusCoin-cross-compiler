@@ -3,7 +3,7 @@ MAINTAINER Asher Dawes asher.dawes@gmail.com
 
 ENV PATH=/root/.cargo/bin:$PATH
 
-RUN apt update && apt -y install \
+RUN apt-get update && apt-get -y install \
   autoconf \
   automake \
   autogen \

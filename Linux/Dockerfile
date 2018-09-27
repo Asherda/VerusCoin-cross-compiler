@@ -2,7 +2,6 @@ FROM ubuntu:bionic
 MAINTAINER Asher Dawes asher.dawes@gmail.com
 
 RUN apt-get update && \
-    apt-get -y upgrade && \
     apt-get -y install \
     build-essential \
     dos2unix \
