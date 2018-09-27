@@ -33,7 +33,7 @@ RUN apt-get update && \
     g++-8 \
     gcc-8 \
     g++8-multilib && \
-    apt-get -y autoclean; \
+    apt-get -y clean; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
