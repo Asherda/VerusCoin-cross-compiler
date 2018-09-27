@@ -31,8 +31,7 @@ RUN apt-get -qq update && apt-get install -q -y \
     rm ${BOOST_TAR} && \
     mkdir ${BOOST_ROOT} && \
     cd boost_${BOOST_MAJOR_VERSION}_${BOOST_MINOR_VERSION}_${BOOST_PATCH} && \
-    ./bootstrap.sh --prefix=${BOOST_ROOT} && \
-    bootstrap mingw && \
+    ./bootstrap.sh mingw --prefix=${BOOST_ROOT} && \
     ./b2 target-os=windows address-model=64  toolset=gcc --build-type=complete link=static threading=multi && ./b2 install && \
     cd .. && \
     rm -rf boost_${BOOST_MAJOR_VERSION}_${BOOST_MINOR_VERSION}_${BOOST_PATCH} && \
