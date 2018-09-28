@@ -32,7 +32,7 @@ RUN apt-get -qq update && apt-get install -q -y \
     mkdir ${BOOST_ROOT} && \
     cd boost_${BOOST_MAJOR_VERSION}_${BOOST_MINOR_VERSION}_${BOOST_PATCH} && \
     ./bootstrap.sh mingw --prefix=${BOOST_ROOT} && \
-    ./b2 target- address-model=64  toolset=gcc --build-type=complete link=static threading=multi && ./b2 install && \
+    ./b2 address-model=64  toolset=gcc --build-type=complete link=static threading=multi && ./b2 install && \
     cd .. && \
     rm -rf boost_${BOOST_MAJOR_VERSION}_${BOOST_MINOR_VERSION}_${BOOST_PATCH} && \
     apt-get -y clean && \

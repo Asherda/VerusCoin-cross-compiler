@@ -30,8 +30,9 @@ RUN apt-get -qq update && apt-get install -q -y \
     rm ${BOOST_TAR} && \
     mkdir ${BOOST_ROOT} && \
     cd boost_${BOOST_MAJOR_VERSION}_${BOOST_MINOR_VERSION}_${BOOST_PATCH} && \
-    ./bootstrap.sh --prefix=${BOOST_ROOT} && \
-    ./b2 --libdir=${BOOST_ROOT}/lib address-model=64 \
+    ./bootstrap.sh --prefix=${BOOST_ROOT} --libdir=${BOOST_ROOT}/lib  && \
+    ./b2 --libdir=${BOOST_ROOT}/lib \
+    address-model=64 \
     -j$(nproc) \
     --build-type=complete \
     link=static \
