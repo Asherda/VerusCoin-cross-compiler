@@ -31,7 +31,17 @@ RUN apt-get -qq update && apt-get install -q -y \
     mkdir ${BOOST_ROOT} && \
     cd boost_${BOOST_MAJOR_VERSION}_${BOOST_MINOR_VERSION}_${BOOST_PATCH} && \
     ./bootstrap.sh --prefix=${BOOST_ROOT} && \
-    ./b2 address-model=64 --build-type=complete link=static threading=multi --with-filesystem && ./b2 install && \
+    ./b2 --libdir=${BOOST_ROOT}/lib address-model=64 \
+    -j$(nproc) \
+    --build-type=complete \
+    link=static \
+    threading=multi \
+    --with-filesystem \
+    address-model=64 \
+    architecture=x86 \
+    pch=off \
+    cxxflags="-march=x86-64 -std=c++11" && \
+    ./b2 install -j$(nproc) && \
     cd .. && \
     rm -rf boost_${BOOST_MAJOR_VERSION}_${BOOST_MINOR_VERSION}_${BOOST_PATCH} && \
     apt-get -y clean; \
