@@ -34,7 +34,6 @@ RUN apt-get -qq update && apt-get install -q -y \
     ./b2 --libdir=${BOOST_ROOT}/lib \
     address-model=64 \
     -j$(nproc) \
-    --build-type=complete \
     link=static \
     threading=multi \
     --with-filesystem \
