@@ -23,6 +23,7 @@ RUN apt-get -qq update && apt-get install -q -y \
     g++ \
     g++-8 \
     gcc-8 \
+    curl \
     wget && \
     wget --max-redirect 3 ${BOOST_DOWNLOAD_URL} && \
     mkdir -p /usr/include/ && \
