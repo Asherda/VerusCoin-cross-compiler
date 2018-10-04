@@ -12,6 +12,7 @@ RUN apt-get update && \
     autoconf \
     curl \
     libtool \
+    make \
     ncurses-dev \
     unzip \
     python \

@@ -12,7 +12,7 @@ RUN apt-get update && apt-get -y install \
   curl \
   libc6-dev \
   libcap-dev \
-  libcurl4-openssl-dev \
+  libcurl4-gnutls-dev \
   libdb++-dev \
   libqrencode-dev \
   libprotobuf-dev \
@@ -40,7 +40,6 @@ RUN apt-get update && apt-get -y install \
   apt-get -y autoremove; \
   apt-get -y autoclean; \
   apt-get -y clean && \
-  mkdir /home/VerusCoin/ && \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 

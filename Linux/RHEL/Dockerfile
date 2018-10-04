@@ -7,6 +7,7 @@ RUN dnf -y install \
      pkgconfig \
      automake \
      autoconf \
+     make \
      ncurses-devel \
      python \
      python-zmq \
