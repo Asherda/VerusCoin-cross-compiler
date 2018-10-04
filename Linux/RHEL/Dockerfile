@@ -8,6 +8,8 @@ RUN dnf -y install \
      automake \
      autoconf \
      make \
+     bzip2 \
+     ccache \
      ncurses-devel \
      python \
      python-zmq \
