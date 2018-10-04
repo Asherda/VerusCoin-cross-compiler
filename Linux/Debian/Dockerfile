@@ -9,17 +9,14 @@ RUN apt-get update && \
     bsdmainutils \
     ccache \
     ca-certificates \
-    dos2unix \
     libc6-dev \
     g++-multilib \
     m4 \
     libcurl4-gnutls-dev \
     libtool \
     make \
-    git \
     ncurses-dev \
     pkg-config \
-    python \
     unzip \
     wget \
     zlib1g-dev && \

@@ -25,8 +25,7 @@ RUN apt-get update && \
     protobuf-compiler \
     libqrencode-dev \
     libdb++-dev \
-    software-properties-common \
-    libcurl4-openssl-dev \
+    libcurl4-gnutls-dev \
     libgconf-2-4 && \
     apt-get -y clean; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
