@@ -1,7 +1,8 @@
-FROM centos:6
+FROM fedora
 MAINTAINER Asher Dawes asher.dawes@gmail.com
 
-RUN dnf install \
+RUN dnf -y update && dnf clean all
+RUN dnf -y install \
      git \
      pkgconfig \
      automake \
@@ -15,5 +16,6 @@ RUN dnf install \
      gcc \
      gcc-c++ \
      libtool \
-     patch
+     patch && \
+     dnf clean all
 
