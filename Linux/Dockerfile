@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:stretch
 MAINTAINER Asher Dawes asher.dawes@gmail.com
 
 RUN apt-get update && \
