@@ -14,6 +14,8 @@ RUN apt-get update && \
     g++-multilib \
     m4 \
     libtool \
+    make \
+    git \
     ncurses-dev \
     pkg-config \
     python \
