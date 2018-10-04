@@ -13,6 +13,7 @@ RUN apt-get update && \
     libc6-dev \
     g++-multilib \
     m4 \
+    libcurl4-gnutls-dev \
     libtool \
     make \
     git \
