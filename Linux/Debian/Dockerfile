@@ -3,19 +3,23 @@ MAINTAINER Asher Dawes asher.dawes@gmail.com
 
 RUN apt-get update && \
     apt-get -y install \
-    dos2unix \
-    ccache \
-    libc6-dev \
-    binutils-gold \
-    m4 \
     autoconf \
-    libtool \
-    unzip \
-    python \
-    zlib1g-dev \
-    wget \
+    automake \
+    binutils-gold \
     bsdmainutils \
-    automake && \
+    ccache \
+    ca-certificates \
+    dos2unix \
+    libc6-dev \
+    g++-multilib \
+    m4 \
+    libtool \
+    ncurses-dev \
+    pkg-config \
+    python \
+    unzip \
+    wget \
+    zlib1g-dev && \
     apt-get -y clean; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
