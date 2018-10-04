@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM debian:jessie
 MAINTAINER Asher Dawes asher.dawes@gmail.com
 
 RUN apt-get update && \
@@ -26,7 +26,7 @@ RUN apt-get update && \
     protobuf-compiler \
     libqrencode-dev \
     libdb++-dev \
-    libcurl4-gnutls-dev \
+    libcurl4-gnutls \
     libgconf-2-4 && \
     apt-get -y clean; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
