@@ -1,4 +1,4 @@
-FROM ubuntu:trusty
+FROM ubuntu:xenial
 MAINTAINER Asher Dawes asher.dawes@gmail.com
 
 RUN apt-get update && \
@@ -26,7 +26,7 @@ RUN apt-get update && \
     protobuf-compiler \
     libqrencode-dev \
     libdb++-dev \
-    libcurl4-gnutls-dev \
+    libcurl3-gnutls-dev \
     libgconf-2-4 && \
     apt-get -y clean; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
