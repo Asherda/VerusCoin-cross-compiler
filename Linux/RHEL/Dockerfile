@@ -3,18 +3,18 @@ MAINTAINER Asher Dawes asher.dawes@gmail.com
 
 RUN dnf -y update && dnf clean all
 RUN dnf -y install \
-     git \
      pkgconfig \
      automake \
      autoconf \
      make \
      bzip2 \
      ccache \
+     curl \
+     curl-devel \
      ncurses-devel \
      python \
      python-zmq \
      wget \
-     curl \
      gtest-devel \
      gcc \
      gcc-c++ \
