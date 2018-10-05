@@ -1,4 +1,4 @@
-FROM gcc:8.2.0
+FROM debian:stretch-slim
 MAINTAINER Asher Dawes asher.dawes@gmail.com
 
 RUN apt-get update && \
@@ -28,6 +28,7 @@ RUN apt-get update && \
     libqrencode-dev \
     libdb++-dev \
     libcurl4-gnutls-dev \
+    g++-multilib \
     libgconf-2-4 && \
     apt-get -y clean; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
