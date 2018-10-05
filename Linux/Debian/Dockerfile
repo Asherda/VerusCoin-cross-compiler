@@ -1,25 +1,34 @@
-FROM debian:jessie
+FROM gcc:8.2.0
 MAINTAINER Asher Dawes asher.dawes@gmail.com
 
 RUN apt-get update && \
     apt-get -y install \
-    autoconf \
-    automake \
-    binutils-gold \
-    bsdmainutils \
+    build-essential \
+    dos2unix \
     ccache \
-    ca-certificates \
+    pkg-config \
     libc6-dev \
-    g++-multilib \
     m4 \
-    libcurl4-gnutls-dev \
+    autoconf \
+    curl \
     libtool \
     make \
     ncurses-dev \
-    pkg-config \
     unzip \
+    python \
+    zlib1g-dev \
     wget \
-    zlib1g-dev && \
+    bsdmainutils \
+    automake \
+    libssl-dev \
+    libprotobuf-dev \
+    fakeroot \
+    lintian \
+    protobuf-compiler \
+    libqrencode-dev \
+    libdb++-dev \
+    libcurl4-gnutls-dev \
+    libgconf-2-4 && \
     apt-get -y clean; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 

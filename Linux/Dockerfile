@@ -29,6 +29,13 @@ RUN apt-get update && \
     libdb++-dev \
     libcurl4-gnutls-dev \
     libgconf-2-4 && \
+    add-apt-repository ppa:ubuntu-toolchain-r/test -y && \
+    apt-get -qq update && \
+    apt-get -y install  \
+    g++-8 \
+    gcc-8 && \
+    update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 60 && \
+    update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 60 && \
     apt-get -y clean; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
