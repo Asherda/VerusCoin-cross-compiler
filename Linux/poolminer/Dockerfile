@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM debian:jessie-slim
 MAINTAINER Asher Dawes <asher.dawes@gmail.com>
 
 ENV DEBIAN_FRONTEND=noninteractive \
@@ -15,14 +15,10 @@ ENV BOOST_VERSION=${BOOST_MAJOR_VERSION}.${BOOST_MINOR_VERSION}.${BOOST_PATCH} \
 ENV BOOST_DOWNLOAD_URL=https://sourceforge.net/projects/boost/files/boost/${BOOST_VERSION}/${BOOST_TAR} 
 
 RUN apt-get -qq update && apt-get install -q -y \
-    software-properties-common \
     cmake && \
-    add-apt-repository ppa:ubuntu-toolchain-r/test -y && \
     apt-get -qq update && \
     apt-get install -y \
-    g++ \
-    g++-8 \
-    gcc-8 \
+    g++-multilib \
     curl \
     wget && \
     wget --max-redirect 3 ${BOOST_DOWNLOAD_URL} && \
