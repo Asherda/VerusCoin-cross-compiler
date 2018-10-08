@@ -1,4 +1,4 @@
-FROM debian:stretch-slim
+FROM ubuntu:xenial
 MAINTAINER Asher Dawes asher.dawes@gmail.com
 
 RUN apt-get update && \
